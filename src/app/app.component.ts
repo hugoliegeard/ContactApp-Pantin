@@ -63,6 +63,9 @@ export class AppComponent {
   // -- Déclaration d'une variable
   title = 'Gestion de Contacts';
 
+  // -- Contact choisi par mon utilisateur
+  contactActif: Contact;
+
   // -- Déclaration d'un Objet Contact
   unContact: Contact = {
     id: 1,
@@ -99,4 +102,13 @@ export class AppComponent {
     },
   ];
 
+  /**
+   * Ma fonction showContact, prend un contact
+   * en paramètre.
+   * @param {Contact} contactCliqueParMonUtilisateur
+   */
+  showContact(contactCliqueParMonUtilisateur: Contact) {
+    this.contactActif = contactCliqueParMonUtilisateur;
+  }
 }
+0
