@@ -3,8 +3,9 @@
  * notre application, on importe "Component"
  * via @angular/core
  */
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Contact} from './models/contact';
+import {UserApiService} from './services/user-api.service';
 
 /**
  * @Component est ce qu'on appel un décorateur.
@@ -48,7 +49,7 @@ import {Contact} from './models/contact';
  * Dans notre contexte MVVM, notre classe
  * correspond au Model.
  */
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   // -- Déclaration d'une variable
   title = 'Gestion de Contacts';
@@ -100,5 +101,23 @@ export class AppComponent {
   showContact(contactCliqueParMonUtilisateur: Contact) {
     this.contactActif = contactCliqueParMonUtilisateur;
   }
+
+  addContactToArray(nouveaucontact: Contact) {
+    // -- Ajout du contact dans le tableau
+    this.mesContacts.push(nouveaucontact);
+  }
+
+  constructor(private userApiService: UserApiService) {}
+
+  /**
+   * La fonction ngOnInit est appelée automatiquement
+   * par Angular, au chargement de l'application.
+   */
+  ngOnInit(): void {
+    this.userApiService.getUsers().subscribe(
+      users => {
+        // this.mesContacts = users;
+      }
+    );
+  }
 }
-0

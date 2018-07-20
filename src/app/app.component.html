@@ -24,22 +24,10 @@
           {{ contact.name }}
         </a>
       </div>
+      <app-add (unContactEstCree)="addContactToArray($event)"></app-add>
     </div>
     <div class="col-sm-8">
-      <div class="jumbotron" *ngIf="contactActif">
-        <h1 class="display-4">{{ contactActif.name }}</h1>
-        <p class="lead">{{ contactActif.username }}</p>
-        <hr class="my-4">
-        <input type="text"
-               [(ngModel)]="contactActif.name"
-               class="form-control">
-      </div>
-      <div class="jumbotron" *ngIf="!contactActif">
-        <h1 class="display-4">Bienvenue !</h1>
-        <p class="lead">
-          Choisissez un Contact...
-        </p>
-      </div>
+      <app-profil [contact]="contactActif"></app-profil>
     </div>
   </div>
   <pre>

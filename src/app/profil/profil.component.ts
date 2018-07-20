@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Contact} from '../models/contact';
 
 @Component({
   selector: 'app-profil',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * Mon composant "ProfilComponent"
+   * s'attend à reçevoir en entrée (Input)
+   * un Objet Contact.
+   */
+  @Input() contact: Contact;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
