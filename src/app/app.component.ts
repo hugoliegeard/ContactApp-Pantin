@@ -4,17 +4,7 @@
  * via @angular/core
  */
 import {Component} from '@angular/core';
-
-class Contact {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address?: object;
-  phone?: number;
-  website?: string;
-  company?: object;
-}
+import {Contact} from './models/contact';
 
 /**
  * @Component est ce qu'on appel un décorateur.
@@ -75,7 +65,7 @@ export class AppComponent {
   };
 
   // -- Tableau de Contacts
-  mesContacts = [
+  mesContacts: Contact[] = [
     {
       id: 1,
       name: 'Hugo LIEGEARD',
